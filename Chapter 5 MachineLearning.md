@@ -21,3 +21,6 @@ Labels are continuous quantities
 Often useful when only incomplete labels are available
 
 # Qualitative Examples of Machine Learning Applications
+
+## Classification : predicting discrete labels
+
