@@ -34,4 +34,35 @@ data[explicit index] % indexing
 
 data[implicit index <font color=red>: </font> implicit index]  %slicing
 
-#### `loc` indexing and slicing refer to the *explicit* index
+1. `loc` indexing and slicing refer to the *explicit* index
+2. `iloc` indexing and slicing refer to the *implicit* index
+
+# Data Selection in DataFrame
+Analogies:
+1. Two dimensional array
+2. A dictionary of `Series` structures sharing the same index
+
+## DataFrame as a dictionary
+```Python
+area = pd.Series({'California': 423967, 'Texas':695662,'New York':141297, 'Florida':170312,'Illinois':149995})
+
+pop = pd.Series({'California': 38332521, 'Texas': 26448193,'New York': 19651127,'Florida': 19552860,'Illinois': 12882135})
+
+data = pd.DataFrame({'area':area, 'pop':pop})
+```
+The individual `Series` making up the **columns** of the `DataFrame` can be accessed via *dictionary-style* indexing of the **column name*
+
+*Attribute-style column access* actually accesses the exact same object as the *dictionary-style access*:
+
+```python
+data.area is data['area']
+```
+PS: This is based on the column name won't be conflicted with methods of the `DataFrame`
+
+This dictionary -style syntax can also be used to modify the object, like adding a new column:
+
+```Python
+data['density'] = data['pop'] / data['area']
+```
+## DataFrame as two-dimensianal array
+`values` attribute
