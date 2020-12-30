@@ -29,7 +29,9 @@ data[['a', 'e']]
 
 ### Indexers: loc, iloc, and ix
 Slicing and indexing conventions can be a source of confusion
+
 data[explicit index] % indexing
+
 data[implicit index <font color=red>: </font> implicit index]  %slicing
 
 #### `loc` indexing and slicing refer to the *explicit* index
