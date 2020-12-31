@@ -66,3 +66,41 @@ data['density'] = data['pop'] / data['area']
 ```
 ## DataFrame as two-dimensianal array
 `values` attribute
+
+```Python
+data.values
+```
+Using `iloc` indexer, we  can index the underlying array as if it is a simple Numpy array.
+```
+data.iloc[:3, :2]
+```
+Similarly, using the `loc` indexer to index data in an array-like style but using the explicit index and column names:
+```
+data.loc[:'Illinois', :'pop']
+```
+The `ix` indexer allows a hybrid of these two approaches.
+```Python
+data.ix[:3, :'pop']
+```
+
+Any of the familiar NumPy-style data access patterns can be used within these indexers.
+e.g combine masking and fancy indexing in the `loc` indexer
+```Python
+data.loc[data.density > 100, ['pop', 'density']]
+```
+
+Any of these **indexing conventions** may also be used to **set or modify values**
+
+```Python
+data.iloc[0, 2] = 90
+```
+
+## Additional indexing conventions
+<font color=red>indexing refers to columns.</font>
+<font color=red>slicing refers to rows </font>by numbers or by index.
+e.g
+```Python
+data['Florida':'Illinois']
+# Or
+data[1:3]
+```
